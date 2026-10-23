@@ -1,0 +1,398 @@
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বিশেষ অনুভূতির ঠিকানা 💖</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti Effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts (Bengali) -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        romantic: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                        }
+                    },
+                    fontFamily: {
+                        bengali: ['Hind Siliguri', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, #16020c 0%, #2b081b 40%, #4a0e2e 80%, #11020a 100%);
+            min-height: 100vh;
+            color: #fce7f3;
+        }
+
+        /* Floating background animation */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart-particle {
+            position: absolute;
+            list-style: none;
+            opacity: 0.3;
+            animation: animateHeart 16s linear infinite;
+            bottom: -80px;
+            filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.7));
+        }
+
+        @keyframes animateHeart {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-1100px) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .pulse-heart {
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.8));
+            }
+            50% { 
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 18px rgba(244, 63, 94, 1));
+            }
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .fade-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="pb-12 relative font-bengali select-none">
+
+    <!-- Floating Background Hearts -->
+    <div class="heart-bg" id="heartContainer"></div>
+
+    <div class="max-w-md mx-auto px-4 py-6 relative z-10 space-y-6">
+
+        <!-- Header Banner -->
+        <header class="glass-card rounded-3xl p-6 text-center border border-pink-500/30 relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-28 h-28 bg-pink-600/20 rounded-full blur-2xl"></div>
+            <div class="absolute -left-8 -bottom-8 w-28 h-28 bg-rose-600/20 rounded-full blur-2xl"></div>
+
+            <div class="inline-block p-4 bg-gradient-to-tr from-rose-500/20 to-pink-500/20 rounded-full mb-3 border border-pink-500/30">
+                <i class="fa-solid fa-heart text-romantic-400 text-4xl pulse-heart"></i>
+            </div>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-pink-200 via-rose-200 to-pink-300 bg-clip-text text-transparent">
+                বিশেষ অনুভূতির ঠিকানা ✨
+            </h1>
+            <p class="text-xs text-pink-200/80 mt-1 font-light leading-relaxed">
+                ভালোবাসা, আনন্দ এবং রোমান্টিকতায় ঘেরা এক অপূর্ব আয়োজন!
+            </p>
+        </header>
+
+        <!-- Feature 1: Love Calculator -->
+        <section class="glass-card rounded-3xl p-5 border border-pink-500/20">
+            <div class="flex items-center space-x-2 mb-4">
+                <div class="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                    <i class="fa-solid fa-calculator text-sm"></i>
+                </div>
+                <h2 class="text-base font-bold text-pink-100">১. লাভ কম্প্যাটিবিলিটি চেক 💘</h2>
+            </div>
+
+            <div class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-medium text-pink-200/80 mb-1">মেয়েটির নাম লিখুন</label>
+                    <input type="text" id="girlName" placeholder="আপনার নাম লিখুন..." 
+                        class="w-full px-4 py-3 rounded-2xl bg-black/30 border border-pink-500/30 focus:outline-none focus:border-pink-400 text-pink-100 placeholder-pink-300/30 text-sm transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-pink-200/80 mb-1">ছেলেটির নাম লিখুন</label>
+                    <input type="text" id="boyName" placeholder="সঙ্গীর নাম লিখুন..." 
+                        class="w-full px-4 py-3 rounded-2xl bg-black/30 border border-pink-500/30 focus:outline-none focus:border-pink-400 text-pink-100 placeholder-pink-300/30 text-sm transition">
+                </div>
+
+                <button onclick="calculateLove()" 
+                    class="w-full btn-glow bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold py-3 rounded-2xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>মিলবন্ধন পরীক্ষা করুন</span>
+                </button>
+            </div>
+
+            <!-- Love Result Output -->
+            <div id="loveResult" class="hidden mt-4 p-4 rounded-2xl text-center transition-all duration-500"></div>
+        </section>
+
+        <!-- Feature 2: Magic Poem Generator (Rumpa Special) -->
+        <section class="glass-card rounded-3xl p-5 border border-pink-500/20">
+            <div class="flex items-center space-x-2 mb-3">
+                <div class="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                    <i class="fa-solid fa-feather-pointed text-sm"></i>
+                </div>
+                <h2 class="text-base font-bold text-pink-100">২. রুম্পার বিশেষ কবিতা ও ছন্দ 📜</h2>
+            </div>
+
+            <!-- Mood Buttons -->
+            <div class="grid grid-cols-2 gap-2 mb-3">
+                <button onclick="setPoemMood('sweet')" id="btn-sweet" class="mood-btn px-3 py-2 rounded-xl text-xs font-medium bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow">
+                    🥰 মিষ্টি মুড
+                </button>
+                <button onclick="setPoemMood('angry')" id="btn-angry" class="mood-btn px-3 py-2 rounded-xl text-xs font-medium bg-black/30 border border-pink-500/20 text-pink-200">
+                    😤 অভিমানী মুড
+                </button>
+                <button onclick="setPoemMood('food')" id="btn-food" class="mood-btn px-3 py-2 rounded-xl text-xs font-medium bg-black/30 border border-pink-500/20 text-pink-200">
+                    🍕 চটপটি ও বিরিয়ানি
+                </button>
+                <button onclick="setPoemMood('funny')" id="btn-funny" class="mood-btn px-3 py-2 rounded-xl text-xs font-medium bg-black/30 border border-pink-500/20 text-pink-200">
+                    😜 ফানি মুহূর্ত
+                </button>
+            </div>
+
+            <!-- Display Poem Box -->
+            <div class="bg-black/40 border border-pink-500/20 p-4 rounded-2xl min-h-[110px] flex flex-col justify-center items-center text-center">
+                <p id="poemText" class="text-sm font-light text-pink-100 leading-relaxed italic fade-transition">
+                    "পছন্দের মুড নির্বাচন করে রুম্পাকে নিয়ে লেখা কবিতাগুলো পড়ুন!"
+                </p>
+            </div>
+
+            <button onclick="generatePoem()" 
+                class="w-full mt-3 bg-pink-950/50 hover:bg-pink-900/50 border border-pink-500/30 text-pink-200 font-medium py-2.5 rounded-2xl transition text-xs flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i>
+                <span>নতুন ছন্দ পরিবর্তন করুন</span>
+            </button>
+        </section>
+
+        <!-- Feature 3: Mood Decoder -->
+        <section class="glass-card rounded-3xl p-5 border border-pink-500/20">
+            <div class="flex items-center space-x-2 mb-2">
+                <div class="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                    <i class="fa-solid fa-comments-dollar text-sm"></i>
+                </div>
+                <h2 class="text-base font-bold text-pink-100">৩. রুম্পার মনের কথা ডিক্রিপ্টর 🔍</h2>
+            </div>
+            <p class="text-xs text-pink-200/70 mb-3 font-light">রুম্পার মুখফোড় কথার আড়ালের আসল অনুভূতি জেনেনিন!</p>
+
+            <select id="moodSelect" class="w-full px-3 py-3 rounded-2xl bg-black/40 border border-pink-500/30 focus:outline-none focus:border-pink-400 text-xs text-pink-100 mb-3">
+                <option value="" class="bg-gray-900">-- রুম্পার কথা নির্বাচন করুন --</option>
+                <option value="thik_achi" class="bg-gray-900">"আমি ঠিক আছি, কিছু হয়নি!"</option>
+                <option value="ja_ichha_koro" class="bg-gray-900">"তোমার যা ইচ্ছা করতে পারো!"</option>
+                <option value="khabo_na" class="bg-gray-900">"আমার ক্ষুধা নেই, কিছু খাব না!"</option>
+                <option value="call_diba_na" class="bg-gray-900">"আমাকে আর ফোন দিবা না!"</option>
+                <option value="sundor_lagse" class="bg-gray-900">"আমাকে কেমন লাগছে?"</option>
+            </select>
+
+            <button onclick="decodeMood()" 
+                class="w-full bg-gradient-to-r from-pink-600 to-rose-600 text-white font-medium py-2.5 rounded-2xl hover:opacity-90 transition text-xs shadow">
+                আসল সত্য জানুন ✨
+            </button>
+
+            <!-- Decoded Output -->
+            <div id="decodedResult" class="hidden mt-3 p-3.5 bg-rose-950/40 rounded-2xl border border-pink-500/30 text-xs text-pink-100 font-light leading-relaxed">
+            </div>
+        </section>
+
+        <!-- Feature 4: Daily Compliment Generator -->
+        <section class="glass-card rounded-3xl p-5 border border-pink-500/20 text-center">
+            <div class="inline-block p-2 bg-pink-500/20 rounded-full mb-2 text-pink-400">
+                <i class="fa-solid fa-heart-circle-check text-base"></i>
+            </div>
+            <h2 class="text-base font-bold text-pink-100 mb-1">৪. রুম্পার জন্য মিষ্টি কমপ্লিমেন্ট 💌</h2>
+            <p class="text-xs text-pink-200/70 mb-3 font-light">প্রতিদিন রুম্পার মুখে এক চিলতে হাসি ফোটানোর বার্তা!</p>
+
+            <div id="complimentBox" class="bg-black/30 p-3.5 rounded-2xl border border-pink-500/20 text-xs text-pink-200 min-h-[55px] flex items-center justify-center font-light mb-3 fade-transition">
+                "রুম্পার জন্য বিশেষ বার্তাটি পড়তে নিচের বাটনে চাপ দিন!"
+            </div>
+
+            <button onclick="getCompliment()" 
+                class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-xs font-medium px-5 py-2.5 rounded-xl shadow transition">
+                কমপ্লিমেন্ট নিন 🎁
+            </button>
+        </section>
+
+        <!-- Feature 5: Emergency IMO Alert Button -->
+        <section class="glass-card rounded-3xl p-5 border border-indigo-500/40 bg-gradient-to-b from-indigo-950/30 to-black/40 text-center">
+            <div class="inline-block p-2 bg-indigo-500/20 rounded-full mb-2 text-indigo-400">
+                <i class="fa-solid fa-comment-dots text-lg"></i>
+            </div>
+            <h2 class="text-base font-bold text-indigo-200 mb-1">৫. সরাসরি IMO মেসেজ 🚨</h2>
+            <p class="text-xs text-indigo-200/70 mb-3 font-light">অভিমান ভাঙাতে বা মিস করলে এক ক্লিকেই সরাসরি ইমোতে মেসেজ দিন!</p>
+
+            <button onclick="openImoMessage()" 
+                class="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 rounded-2xl shadow-lg transform active:scale-95 transition flex items-center justify-center space-x-2 text-xs">
+                <i class="fa-solid fa-paper-plane text-indigo-200"></i>
+                <span>সরাসরি IMO-তে মেসেজ পাঠান 📱</span>
+            </button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-xs text-pink-300/50 pt-2 font-light">
+            অনেক ভালোবাসা ও যত্ন নিয়ে তৈরি ✨
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Floating Hearts Background
+        function createHeartBg() {
+            const container = document.getElementById('heartContainer');
+            const heartIcons = ['❤️', '💖', '💕', '💗', '🌸', '✨', '🌹'];
+            for (let i = 0; i < 18; i++) {
+                const li = document.createElement('div');
+                li.classList.add('heart-particle');
+                li.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                li.style.left = `${Math.random() * 100}%`;
+                li.style.animationDelay = `${Math.random() * 12}s`;
+                li.style.animationDuration = `${12 + Math.random() * 10}s`;
+                li.style.fontSize = `${14 + Math.random() * 18}px`;
+                container.appendChild(li);
+            }
+        }
+        createHeartBg();
+
+        // Helper string normalizer
+        function cleanName(str) {
+            return str.trim().toLowerCase().replace(/\s+/g, '');
+        }
+
+        // Check if Girl Name matches Rumpa (Bangla / English)
+        function checkRumpa(str) {
+            const n = cleanName(str);
+            return n.includes('রুম্পা') || n.includes('রুমপা') || n.includes('rumpa') || n.includes('rompa');
+        }
+
+        // Check if Boy Name matches Nahid, Arif, Saikat/Soykat (Bangla / English)
+        function checkBoy(str) {
+            const n = cleanName(str);
+            const isNahid = n.includes('নাহিদ') || n.includes('nahid') || n.includes('nahed');
+            const isArif = n.includes('আরিফ') || n.includes('arif') || n.includes('areef');
+            const isSaikat = n.includes('সৈকত') || n.includes('saikat') || n.includes('soykat') || n.includes('saikot') || n.includes('saykat');
+            return isNahid || isArif || isSaikat;
+        }
+
+        // 1. Love Calculator Logic
+        function calculateLove() {
+            const gName = document.getElementById('girlName').value;
+            const bName = document.getElementById('boyName').value;
+            const resultDiv = document.getElementById('loveResult');
+
+            if (!gName.trim() || !bName.trim()) {
+                resultDiv.className = "mt-4 p-3 bg-amber-950/60 border border-amber-500/30 text-amber-200 rounded-2xl text-xs font-light text-center";
+                resultDiv.innerText = "দয়া করে দুটি ইনপুটেই নাম লিখুন! 🌸";
+                resultDiv.classList.remove('hidden');
+                return;
+            }
+
+            const isMatch = (checkRumpa(gName) && checkBoy(bName)) || (checkBoy(gName) && checkRumpa(bName));
+
+            resultDiv.classList.remove('hidden');
+
+            if (isMatch) {
+                confetti({
+                    particleCount: 90,
+                    spread: 75,
+                    origin: { y: 0.6 },
+                    colors: ['#f43f5e', '#fb7185', '#ffe4e6', '#ffffff']
+                });
+
+                resultDiv.className = "mt-4 p-4 bg-gradient-to-b from-rose-900/70 to-pink-950/90 border border-pink-500/40 text-pink-100 rounded-2xl text-center shadow-lg";
+                resultDiv.innerHTML = `
+                    <div class="text-2xl font-extrabold text-pink-300 mb-1">১০০% ম্যাচ! 🔥</div>
+                    <div class="text-sm font-semibold text-rose-200">মেড ইন হেভেন জুটি! 💖</div>
+                    <p class="text-xs text-pink-200/80 mt-1 font-light leading-relaxed">
+                        রুম্পার ভালোবাসার সাথে চমৎকার এই মেলবন্ধন একেবারে চিরন্তন ও নিখুঁত!
+                    </p>
+                `;
+            } else {
+                resultDiv.className = "mt-4 p-4 bg-gray-950/80 border border-red-500/30 text-gray-200 rounded-2xl text-center shadow-md";
+                resultDiv.innerHTML = `
+                    <div class="text-2xl font-extrabold text-rose-500 mb-1">০% ম্যাচ ❌</div>
+                    <div class="text-xs font-semibold text-rose-400 mb-1">সিকিউরিটি অ্যালার্ট!</div>
+                    <p class="text-xs text-pink-200/70 font-light leading-relaxed">
+                        সিস্টেম এরর! রুম্পার জন্য শুধু তার নির্ধারিত ভালোবাসাই বরাদ্দ! অন্য কারো নাম গ্রহণযোগ্য নয়! 😜
+                    </p>
+                `;
+            }
+        }
+
+        // 2. Poems with explicit "রুম্পা" name
+        let currentMood = 'sweet';
+
+        const poems = {
+            sweet: [
+                "আকাশের সব তারার মাঝে রুম্পা তুমি চাঁদ,\nতোমার হাসিতে কেটে যায় যত মেঘলা আঁধার রাত! ✨\nপাশে থাকলে ভালোবাসার সুর বাজে মনে,\nরুম্পাকে রাখব আগলে আমি পরম যতনে! 💖",
+                "গোলাপের চেয়েও মিষ্টি রুম্পা তোমার হাসি,\nকথা না বললেও বুঝে নিও তোমায় কত ভালোবাসি! 🌸",
+                "রুম্পা তুমি আমার কল্পনার মিষ্টি রূপকথা,\nতোমার প্রেমে হারিয়ে যাওয়া আমার ভালোবাসার পূর্ণতা! 🥰"
+            ],
+            angry: [
+                "মিছিমিছি রুম্পা তুমি মুখ করবে না তো কালো?\nতোমার অভিমান ভাঙালে সত্যি লাগবে কত ভালো! 😜\nএকটুখানি হেসে ফেলো, রাগ করে কি থাকা যায়?\nরুম্পার মুখে হাসি ছাড়া কিছুই না মানায়!",
+                "রাগ করলেও রুম্পাকে দেখতে লাগে ভীষণ মিষ্টি,\nতোমার মায়াবী চেহারায় যেন ভালোবাসার বৃষ্টি! 💖",
+                "চোখের কোণে রাগ জমিয়ে রুম্পা মেরো না তাকা,\nতোমার মিষ্টি রাগ ভাঙাতে আমরা রাজি হাজারো তর্কে জড়িয়ে থাকা! 🥺"
+            ],
+            food: [
+                "ফুচকা, চটপটি আর বিরিয়ানির সুবাসে,\nরুম্পার মিষ্টি মুখটা খিলখিলিয়ে হেসে ওঠে সুখে! 🍕\nপেট পুরে খেয়ে নাও ডায়েটের চিন্তা নাই,\nরুম্পা তুমি যেমন আছ ঠিক তেমনই তোমায় চাই!",
+                "আইসক্রিম আর মোমোর প্লেট এনে দেব পাতে,\nরুম্পার হাসি যেন বজায় থাকে দিনে আর রাতে! 🍦",
+                "মচমচে ফুচকার সাথে একটুখানি তেঁতুল জল,\nরুম্পা খুশি হলেই আমাদের সব কষ্টের অবসান সফল! 🍔"
+            ],
+            funny: [
+                "ঝগড়া করার বিষয়ে রুম্পা সেরা অলরাউন্ডার,\nতবুও রুম্পাকে ভেবেই মনটা হয় একাকার! 🙈\nহুকুম যত দেবে রুম্পা মেনে নেব সবকথা,\nতুমি পাশে থাকলেই দূর হয় সব মনের ব্যাকুলতা!",
+                "রাগ করাটা যদি হতো রুম্পার প্রধান কাজ,\nরাগ ভাঙানোর দায়িত্ব নিয়ে বসে আছি আজ! 😂",
+                "রুম্পার কথাই শেষ কথা, নেই কোনো সন্দেহ,\nতোমার মিষ্টি হুকুম মেনে চলাই জীবনের আনন্দ বড়! 👑"
+            ]
+        };
+
+        function setPoemMood(mood) {
+            currentMood = mood;
+            const buttons = document.querySelectorAll('.mood-btn
